@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .img {
+            max-width: 100px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("nav") %>
+        <div id="parent-box"></div>
+</body>
+<script>
+    fetch("/blog/blogs")
+        .then((res) => res.json())
+        .then((data) => {
+            data.map((ele) => {
+                let img = document.createElement("img");
+                img.src = ele.image;
+                img.setAttribute("class", "img");
+                let title = document.createElement("p");
+                title.innerHTML = ele.title;
+                title.setAttribute("class", "title");
+                let div = document.createElement("div");
+                div.append(img, title);
+                div.setAttribute("class", "list");
+                document.getElementById("parent-box").append(div);
+
+                div.addEventListener("click" ,() =>{
+                    window.location.href = `/blog/singleBlog/${ele._id}`
+                })
+
+            });
+        });
+</script>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <%- include("nav")  %>
+    <div class='container'>
+    <form id="blogForm" action="/blog/create" method="POST">
+      <input type="text" id="title" name="title" placeholder="title"/>
+      <textarea id="content" name="content" rows="4" placeholder="content" ></textarea>
+      <input type="text" id="category" name="category" placeholder="category"/>
+      <input type="url" id="image" name="image" placeholder="image"/>
+      <input type="submit" >
+    </form>
+  </div>
+  </body>
+</html>

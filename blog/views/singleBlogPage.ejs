@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("nav") %>
+
+    <div id="blog">
+        <img src="<%= singleBlog.image %>" alt="<%= singleBlog.title %>" id="img">
+        <h3 id="title"><%= singleBlog.title %></h3>
+        <span id="category"><%= singleBlog.category %></span>
+        <p id="content"><%= singleBlog.content %></p>
+        <button id="like">like</button>
+        <span id="count"><%= singleBlog.likedBy.length %></span>
+        <form action="" method="post" id="comment">
+            <input type="text" name="comments" placeholder="comments">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
